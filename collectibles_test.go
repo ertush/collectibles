@@ -9,12 +9,12 @@ import (
 // Byte type vars
 var byteSlice = []byte{3, 5, 7, 9, 8, 2}
 var byteSlice2 = []byte{3, 5, 7, 4, 8, 2}
-var byt *Byte_
+var byt *Byt
 
 // Int type vars
 var intSlice = []int{3, 5, 7, 9, 8, 2}
 var intSlice2 = []int{3, 5, 7, 4, 8, 2}
-var intr *Int_
+var intr *Intr
 
 //Byte test help methods
 
@@ -108,11 +108,11 @@ func TestIndexForByte(t *testing.T) {
 	assert.Equal(t, expect, byt.index(byteSlice, 7))
 }
 
-// Map Test for byte type
-func TestMapForByte(t *testing.T) {
+// MapM Test for byte type
+func TestMapMForByte(t *testing.T) {
 	expect := []byte{9, 25, 49, 81, 64, 4}
 
-	assert.Equal(t, expect, byt.Map(byteSlice, square))
+	assert.Equal(t, expect, byt.mapM(byteSlice, square))
 }
 
 //Include Test for byte type
@@ -153,11 +153,11 @@ func TestIndexForInt(t *testing.T) {
 	assert.Equal(t, expect, intr.index(intSlice, 7))
 }
 
-// Map Test for int type
-func TestMapForInt(t *testing.T) {
+// MapM Test for int type
+func TestMapMForInt(t *testing.T) {
 	expect := []int{9, 25, 49, 81, 64, 4}
 
-	assert.Equal(t, expect, intr.Map(intSlice, intSquare))
+	assert.Equal(t, expect, intr.mapM(intSlice, intSquare))
 }
 
 //Include Test for int type
