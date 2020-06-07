@@ -9,12 +9,12 @@ import (
 // Byte type vars
 var byteSlice = []byte{3, 5, 7, 9, 8, 2}
 var byteSlice2 = []byte{3, 5, 7, 4, 8, 2}
-var byt *_Byte
+var byt *Byte_
 
 // Int type vars
 var intSlice = []int{3, 5, 7, 9, 8, 2}
 var intSlice2 = []int{3, 5, 7, 4, 8, 2}
-var intr *_Int
+var intr *Int_
 
 //Byte test help methods
 

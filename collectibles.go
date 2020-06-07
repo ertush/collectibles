@@ -11,18 +11,18 @@ type collection interface {
 	any()
 }
 
-// _Byte type is to be exported
-type _Byte byte
+// Byte_ type is to be exported
+type Byte_ byte
 
-// _Int type is to be exported
-type _Int int
+// Int_ type is to be exported
+type Int_ int
 
-// _float type is to be exported
-type _float float64
+// Float_ type is to be exported
+type Float_ float64
 
 /////////////// byte collection methods Implementation /////////////////
 
-func (byte_ *_Byte) index(vs []byte, t byte) int {
+func (byte_ *Byte_) index(vs []byte, t byte) int {
 	for i, v := range vs {
 		if v == t {
 			return i
@@ -31,7 +31,7 @@ func (byte_ *_Byte) index(vs []byte, t byte) int {
 	return -1
 }
 
-func (byte_ *_Byte) Map(vs []byte, f func(byte) byte) []byte {
+func (byte_ *Byte_) Map(vs []byte, f func(byte) byte) []byte {
 	vsm := make([]byte, len(vs))
 	for i, v := range vs {
 		vsm[i] = f(v)
@@ -39,11 +39,11 @@ func (byte_ *_Byte) Map(vs []byte, f func(byte) byte) []byte {
 	return vsm
 }
 
-func (byte_ *_Byte) include(vs []byte, t byte) bool {
+func (byte_ *Byte_) include(vs []byte, t byte) bool {
 	return byte_.index(vs, t) >= 0
 }
 
-func (byte_ *_Byte) any(vs []byte, f func(byte) bool) bool {
+func (byte_ *Byte_) any(vs []byte, f func(byte) bool) bool {
 	for _, v := range vs {
 		if f(v) {
 			return true
@@ -52,7 +52,7 @@ func (byte_ *_Byte) any(vs []byte, f func(byte) bool) bool {
 	return false
 }
 
-func (byte_ *_Byte) all(vs []byte, f func(byte) bool) bool {
+func (byte_ *Byte_) all(vs []byte, f func(byte) bool) bool {
 	for _, v := range vs {
 		if !f(v) {
 			return false
@@ -61,7 +61,7 @@ func (byte_ *_Byte) all(vs []byte, f func(byte) bool) bool {
 	return true
 }
 
-func (byte_ *_Byte) filter(vs []byte, f func(byte) bool) []byte {
+func (byte_ *Byte_) filter(vs []byte, f func(byte) bool) []byte {
 	vsf := make([]byte, 0)
 	for _, v := range vs {
 		if f(v) {
@@ -71,7 +71,7 @@ func (byte_ *_Byte) filter(vs []byte, f func(byte) bool) []byte {
 	return vsf
 }
 
-func (byte_ *_Byte) compare(vs, vp []byte, f func(byte, byte) bool) bool {
+func (byte_ *Byte_) compare(vs, vp []byte, f func(byte, byte) bool) bool {
 	var retVal bool
 
 	if len(vs) == len(vp) {
@@ -94,7 +94,7 @@ func (byte_ *_Byte) compare(vs, vp []byte, f func(byte, byte) bool) bool {
 
 /////////////// int collection methods Implementation /////////////////
 
-func (int_ *_Int) isConsecutive(m []int) bool {
+func (int_ *Int_) isConsecutive(m []int) bool {
 	var retVal bool
 	for i, v := range m {
 		if i == v {
@@ -107,7 +107,7 @@ func (int_ *_Int) isConsecutive(m []int) bool {
 	return retVal
 }
 
-func (int_ *_Int) index(vs []int, t int) int {
+func (int_ *Int_) index(vs []int, t int) int {
 	for i, v := range vs {
 		if v == t {
 			return i
@@ -116,7 +116,7 @@ func (int_ *_Int) index(vs []int, t int) int {
 	return -1
 }
 
-func (int_ *_Int) Map(vs []int, f func(int) int) []int {
+func (int_ *Int_) Map(vs []int, f func(int) int) []int {
 	vsm := make([]int, len(vs))
 	for i, v := range vs {
 		vsm[i] = f(v)
@@ -124,11 +124,11 @@ func (int_ *_Int) Map(vs []int, f func(int) int) []int {
 	return vsm
 }
 
-func (int_ *_Int) include(vs []int, t int) bool {
+func (int_ *Int_) include(vs []int, t int) bool {
 	return int_.index(vs, t) >= 0
 }
 
-func (int_ *_Int) any(vs []int, f func(int) bool) bool {
+func (int_ *Int_) any(vs []int, f func(int) bool) bool {
 	for _, v := range vs {
 		if f(v) {
 			return true
@@ -137,7 +137,7 @@ func (int_ *_Int) any(vs []int, f func(int) bool) bool {
 	return false
 }
 
-func (int_ *_Int) all(vs []int, f func(int) bool) bool {
+func (int_ *Int_) all(vs []int, f func(int) bool) bool {
 	for _, v := range vs {
 		if !f(v) {
 			return false
@@ -146,7 +146,7 @@ func (int_ *_Int) all(vs []int, f func(int) bool) bool {
 	return true
 }
 
-func (int_ *_Int) filter(vs []int, f func(int) bool) []int {
+func (int_ *Int_) filter(vs []int, f func(int) bool) []int {
 	vsf := make([]int, 0)
 	for _, v := range vs {
 		if f(v) {
@@ -156,7 +156,7 @@ func (int_ *_Int) filter(vs []int, f func(int) bool) []int {
 	return vsf
 }
 
-func (int_ *_Int) compare(vs, vp []int, f func(int, int) bool) bool {
+func (int_ *Int_) compare(vs, vp []int, f func(int, int) bool) bool {
 	var retVal bool
 
 	if len(vs) == len(vp) {
