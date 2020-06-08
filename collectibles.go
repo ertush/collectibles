@@ -2,14 +2,14 @@ package collectibles
 
 // Collection is to be exported
 type Collection interface {
-	index()
-	include()
-	isConsecutive()
-	compare()
-	mapM()
-	filter()
-	all()
-	any()
+	Index()
+	Include()
+	IsConsecutive()
+	Compare()
+	Map()
+	Filter()
+	All()
+	Any()
 }
 
 // Byt type is to be exported
@@ -23,7 +23,8 @@ type Flt float64
 
 /////////////// byte collection methods Implementation /////////////////
 
-func (byt *Byt) index(vs []byte, t byte) int {
+// Index implementation of type byte
+func (byt *Byt) Index(vs []byte, t byte) int {
 	for i, v := range vs {
 		if v == t {
 			return i
@@ -32,7 +33,8 @@ func (byt *Byt) index(vs []byte, t byte) int {
 	return -1
 }
 
-func (byt *Byt) mapM(vs []byte, f func(byte) byte) []byte {
+// Map implementation of type byte
+func (byt *Byt) Map(vs []byte, f func(byte) byte) []byte {
 	vsm := make([]byte, len(vs))
 	for i, v := range vs {
 		vsm[i] = f(v)
@@ -40,11 +42,13 @@ func (byt *Byt) mapM(vs []byte, f func(byte) byte) []byte {
 	return vsm
 }
 
-func (byt *Byt) include(vs []byte, t byte) bool {
-	return byt.index(vs, t) >= 0
+// Include implementation of type byte
+func (byt *Byt) Include(vs []byte, t byte) bool {
+	return byt.Index(vs, t) >= 0
 }
 
-func (byt *Byt) any(vs []byte, f func(byte) bool) bool {
+// Any implementation of type byte
+func (byt *Byt) Any(vs []byte, f func(byte) bool) bool {
 	for _, v := range vs {
 		if f(v) {
 			return true
@@ -53,7 +57,8 @@ func (byt *Byt) any(vs []byte, f func(byte) bool) bool {
 	return false
 }
 
-func (byt *Byt) all(vs []byte, f func(byte) bool) bool {
+// All implementation of type byte
+func (byt *Byt) All(vs []byte, f func(byte) bool) bool {
 	for _, v := range vs {
 		if !f(v) {
 			return false
@@ -62,7 +67,8 @@ func (byt *Byt) all(vs []byte, f func(byte) bool) bool {
 	return true
 }
 
-func (byt *Byt) filter(vs []byte, f func(byte) bool) []byte {
+// Filter implementation of type byte
+func (byt *Byt) Filter(vs []byte, f func(byte) bool) []byte {
 	vsf := make([]byte, 0)
 	for _, v := range vs {
 		if f(v) {
@@ -72,7 +78,8 @@ func (byt *Byt) filter(vs []byte, f func(byte) bool) []byte {
 	return vsf
 }
 
-func (byt *Byt) compare(vs, vp []byte, f func(byte, byte) bool) bool {
+// Compare implementation of type byte
+func (byt *Byt) Compare(vs, vp []byte, f func(byte, byte) bool) bool {
 	var retVal bool
 
 	if len(vs) == len(vp) {
@@ -95,7 +102,8 @@ func (byt *Byt) compare(vs, vp []byte, f func(byte, byte) bool) bool {
 
 /////////////// int collection methods Implementation /////////////////
 
-func (intr *Intr) isConsecutive(m []int) bool {
+// IsConsecutive implementation of type int
+func (intr *Intr) IsConsecutive(m []int) bool {
 	var retVal bool
 	for i, v := range m {
 		if i == v {
@@ -108,7 +116,8 @@ func (intr *Intr) isConsecutive(m []int) bool {
 	return retVal
 }
 
-func (intr *Intr) index(vs []int, t int) int {
+// Index implementation of type int
+func (intr *Intr) Index(vs []int, t int) int {
 	for i, v := range vs {
 		if v == t {
 			return i
@@ -117,7 +126,8 @@ func (intr *Intr) index(vs []int, t int) int {
 	return -1
 }
 
-func (intr *Intr) mapM(vs []int, f func(int) int) []int {
+// Map implementation of type int
+func (intr *Intr) Map(vs []int, f func(int) int) []int {
 	vsm := make([]int, len(vs))
 	for i, v := range vs {
 		vsm[i] = f(v)
@@ -125,11 +135,13 @@ func (intr *Intr) mapM(vs []int, f func(int) int) []int {
 	return vsm
 }
 
-func (intr *Intr) include(vs []int, t int) bool {
-	return intr.index(vs, t) >= 0
+// Include implementation of type int
+func (intr *Intr) Include(vs []int, t int) bool {
+	return intr.Index(vs, t) >= 0
 }
 
-func (intr *Intr) any(vs []int, f func(int) bool) bool {
+// Any implementation of type int
+func (intr *Intr) Any(vs []int, f func(int) bool) bool {
 	for _, v := range vs {
 		if f(v) {
 			return true
@@ -138,7 +150,8 @@ func (intr *Intr) any(vs []int, f func(int) bool) bool {
 	return false
 }
 
-func (intr *Intr) all(vs []int, f func(int) bool) bool {
+// All implementation of type int
+func (intr *Intr) All(vs []int, f func(int) bool) bool {
 	for _, v := range vs {
 		if !f(v) {
 			return false
@@ -147,7 +160,8 @@ func (intr *Intr) all(vs []int, f func(int) bool) bool {
 	return true
 }
 
-func (intr *Intr) filter(vs []int, f func(int) bool) []int {
+// Filter implementation of type int
+func (intr *Intr) Filter(vs []int, f func(int) bool) []int {
 	vsf := make([]int, 0)
 	for _, v := range vs {
 		if f(v) {
@@ -157,7 +171,8 @@ func (intr *Intr) filter(vs []int, f func(int) bool) []int {
 	return vsf
 }
 
-func (intr *Intr) compare(vs, vp []int, f func(int, int) bool) bool {
+// Compare implementation of type int
+func (intr *Intr) Compare(vs, vp []int, f func(int, int) bool) bool {
 	var retVal bool
 
 	if len(vs) == len(vp) {
