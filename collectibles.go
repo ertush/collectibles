@@ -1,6 +1,7 @@
 package collectibles
 
-type collection interface {
+// Collection is to be exported
+type Collection interface {
 	index()
 	include()
 	isConsecutive()
