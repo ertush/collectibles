@@ -14,7 +14,7 @@ var byt *Byt
 // Int type vars
 var intSlice = []int{3, 5, 7, 9, 8, 2}
 var intSlice2 = []int{3, 5, 7, 4, 8, 2}
-var intSlice3 = []int{1, 2, 3, 4, 5, 6}
+var intSlice3 = []int{0, 1, 2, 3, 4, 5, 6}
 var intr *Intr
 
 //Byte test help methods
